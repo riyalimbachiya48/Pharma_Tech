@@ -1,0 +1,358 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- <============================== index slider image ===================> -->
+<div class="slideshow-container">
+
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="{% static 'img/med8.jpeg' %}" alt="img">
+    <div class="text">Caption Text</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="{% static 'img/med14.jpg' %}">
+    <div class="text">Caption Two</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="{% static 'img/med1.jpg' %}">
+    <div class="text">Caption Three</div>
+  </div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+
+<!--================================= reveal class our Services================================ -->
+<section class="services">
+  <div class="info-container">
+
+    <div class="icon-container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="h2 font-weight-bold text-uppercase text-center my-5"
+            style=" font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin: -254px 0px 38px 0px; color: #144599; ">
+            Our
+            Services</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="carousel box-carousel d-none d-sm-flex" style="display:flex;">
+            <div class="box">
+              <a href="/medicines"><i class="fa fa-3x fa-book-medical" aria-hidden="true"></i><br>Blogs</a>
+            </div>
+            <div class="box">
+              <a href="/appointment"><i class="fas fa-3x  fa-heart" aria-hidden="true"></i><br>Lab test</a>
+            </div>
+            <div class="box">
+              <a href="/collecion"><i class="fa fa-3x fa-capsules" aria-hidden="true"></i><br>Medicine</a>
+            </div>
+            <div class="box">
+              <a href="/login"><i class="fa fa-3x fa-handshake-o" aria-hidden="true"></i><br>Join us</a>
+            </div>
+            <div class="box">
+              <a href="/about"><i class="fa fa-3x fa-address-card" aria-hidden="true"></i><br>About</a>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- container-->
+
+</section>
+
+
+<!-- =================================== labtest appointment ========================-->
+
+
+
+
+<!-- ===================================== client review =============================-->
+<section id="testimonials">
+  <!--heading--->
+  <div class="testimonial-heading">
+    <span style="  margin: 68px 0px 0px 0px;">Comments</span>
+    <h1>Clients Says</h1>
+  </div>
+  <!--testimonials-box-container------>
+  <div class="testimonial-box-container">
+    <!--BOX-1-------------->
+    <div class="testimonial-box">
+      <!--top------------------------->
+      <div class="box-top">
+        <!--profile----->
+        <div class="profile">
+          <!--img---->
+          <div class="profile-img">
+            <img src="/static/img/c-4.jpg" />
+          </div>
+          <!--name-and-username-->
+          <div class="name-user">
+            <strong>Touseeq Ijaz</strong>
+            <span>@touseeqijazweb</span>
+          </div>
+        </div>
+        <!--reviews------>
+        <div class="reviews">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+          <!--Empty star-->
+        </div>
+      </div>
+      <!--Comments---------------------------------------->
+      <div class="client-comment">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat quis? Provident temporibus
+          architecto asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam tenetur voluptates incidunt
+          blanditiis sed atque cumque.</p>
+      </div>
+    </div>
+    <!--BOX-2-------------->
+    <div class="testimonial-box">
+      <!--top------------------------->
+      <div class="box-top">
+        <!--profile----->
+        <div class="profile">
+          <!--img---->
+          <div class="profile-img">
+            <img src="/static/img/c-3.jpg" />
+          </div>
+          <!--name-and-username-->
+          <div class="name-user">
+            <strong>J.K Rowling</strong>
+            <span>@jkrowling</span>
+          </div>
+        </div>
+        <!--reviews------>
+        <div class="reviews">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <!--Empty star-->
+        </div>
+      </div>
+      <!--Comments---------------------------------------->
+      <div class="client-comment">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat quis? Provident temporibus
+          architecto asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam tenetur voluptates incidunt
+          blanditiis sed atque cumque.</p>
+      </div>
+    </div>
+    <!--BOX-3-------------->
+    <div class="testimonial-box">
+      <!--top------------------------->
+      <div class="box-top">
+        <!--profile----->
+        <div class="profile">
+          <!--img---->
+          <div class="profile-img">
+            <img src="/static/img/c-2.jpg" />
+          </div>
+          <!--name-and-username-->
+          <div class="name-user">
+            <strong>Harry Potter</strong>
+            <span>@DanielRedclief</span>
+          </div>
+        </div>
+        <!--reviews------>
+        <div class="reviews">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+          <!--Empty star-->
+        </div>
+      </div>
+      <!--Comments---------------------------------------->
+      <div class="client-comment">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat quis? Provident temporibus
+          architecto asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam tenetur voluptates incidunt
+          blanditiis sed atque cumque.</p>
+      </div>
+    </div>
+    <!--BOX-4-------------->
+    <div class="testimonial-box">
+      <!--top------------------------->
+      <div class="box-top">
+        <!--profile----->
+        <div class="profile">
+          <!--img---->
+          <div class="profile-img">
+            <img src="/static/img/c-1.jpg" />
+          </div>
+          <!--name-and-username-->
+          <div class="name-user">
+            <strong>Oliva</strong>
+            <span>@Olivaadward</span>
+          </div>
+        </div>
+        <!--reviews------>
+        <div class="reviews">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+          <!--Empty star-->
+        </div>
+      </div>
+      <!--Comments---------------------------------------->
+      <div class="client-comment">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat quis? Provident temporibus
+          architecto asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam tenetur voluptates incidunt
+          blanditiis sed atque cumque.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--========================================= why choose us ======================== -->
+<h2 class="index1">Why Choose us ?</h2>
+<div class="why-choose-us" style="margin:0px 0px -265px 0px">
+  <div class="why-choose-us-container">
+    <section class="services">
+      <div class="card">
+        <div class="content">
+          <div class="icon"><i class="fa fa-prescription-bottle-alt"></i></div>
+          <div class="title">Prescription Medicine</div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, reprehenderit.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <div class="icon"><i class="fa fa-shipping-fast"></i></div>
+          <div class="title">Fast Shipping</div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, reprehenderit.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <div class="icon"><i class="fa fa-people-arrows"></i></div>
+          <div class="title">Better testimonial </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, reprehenderit.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <div class="icon"><i class="fa fa-clinic-medical"></i></div>
+          <div class="title">Trustable Comapnies </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, reprehenderit.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <div class="icon"><i class="fa fa-capsules"></i></div>
+          <div class="title">Best Medicines </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, reprehenderit.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <div class="icon"><i class="fa fa-hourglass-half"></i></div>
+          <div class="title">24x7 Availabel</div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, reprehenderit.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</div>
+
+
+<!--========================================= contact us ======================== -->
+<h2 class="index2"> Contact us </h2>
+<section id="contact" class="card m-4 p-4">
+  <div class="contact-container">
+      <div class="row text-center">
+        
+          <div class="col-sm-6">
+          <div class="contact-detail-box" style="margin:0px 0px 37px 0px">
+            <i class="far fa-envelope text-colored fa-3x"></i>
+            <h4>Get In Touch</h4>
+            <abbr title="Phone"></abbr> (+91)70699-7890<br>
+             <a href="mailto:email@email.com" class="text-muted">Pharmatech09@email.com</a>
+          </div>
+        </div><!-- end col -->
+
+        <div class="col-sm-6">
+          <div class="contact-detail-box">
+            <i class="fa fa-map-marker fa-3x text-colored"></i>
+            <h4>Our Location</h4>
+
+            <address>
+            795 Folsom Ave, Suite 600<br>
+            San Francisco, CA 94107<br>
+          </address>
+          </div>
+        </div><!-- end col -->
+
+
+
+      </div>
+      <!-- end row -->
+
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="contact-map">
+            <iframe src="https://www.google.com/maps/embed/v1/place?q=New+York+University&amp;key=AIzaSyBSFRN6WWGYwmFi498qXXsD2UwkbmD74v4" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="width: 100%; height: 360px;"></iframe>
+          </div>
+        </div><!-- end col -->
+
+        <!-- Contact form -->
+        <div class="col-sm-6">
+          <form role="form" name="ajax-form" id="ajax-form" method="POST" class="form-main" action = "{% url 'home' %}">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="name2">Name</label>
+              <input class="form-control" id="name2" name="name" type="text" placeholder="name" value="{{ request.user }} {{ request.user.last_name }}">
+              <div class="error" id="err-name" style="display: none;">Please enter name</div>
+            </div> <!-- /Form-name -->
+
+            <div class="form-group">
+              <label for="email2">Email</label>
+              <input class="form-control" id="email2" name="email" type="text" placeholder="email" value="{{ request.user.email }}">
+              <div class="error" id="err-emailvld" style="display: none;">E-mail is not a valid format</div> 
+            </div> <!-- /Form-email -->
+
+            <div class="form-group">
+              <label for="message2">Give us your feedback !</label>
+              <textarea class="form-control" id="message2" name="message" rows="5" placeholder="message">Message</textarea>
+
+              <div class="error" id="err-message" style="display: none;">Please enter message</div>
+            </div> <!-- /col -->
+
+            <div class="row">            
+                <button type="submit" class="btn btn-primary btn-shadow btn-rounded w-md" id="send" style="margin:10px">Send</button>
+              </div> <!-- /col -->
+            </div> <!-- /row -->
+
+          </form> <!-- /form -->
+        </div> <!-- end col -->
+
+      </div> <!-- end row -->
+          
+    </div>
+</section>
+
+
+<!-- ======================================= External Script ======================== -->
+<script src="{% static 'js/index.js' %}"></script>
+{% endblock main %}

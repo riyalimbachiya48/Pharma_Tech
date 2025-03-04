@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}about{% endblock title %}
+{% block main %}
+<div class="content">
+    <div class="about" style="padding-top: 100px; padding-bottom: 100px;">
+        <div class="main-box">
+            <div class="img-box">
+                <img src="../static/img/img.jpg">
+                <br>
+                <center>
+                    <p style="padding-top: 105px;">
+                    <h1>Hello !</h1>
+                    <p style="text-align: center;padding:2px 10px">
+
+                    <p>Working alignment with standard operating procedures is an essential aspect of any organization,
+                        especially in helthcare.Ensuring that the management to all member staff is operating according
+                        to a formlized and coordinated process increase productivity and reduces the risk of error.</p>
+                    </p>
+
+                    <div class="about-icon">
+                        <i class="fa fa-linkedin"></i>
+                        <i class="fa fa-instagram"></i>
+                        <i class="fa fa-twitter"></i>
+                        <i class="fa fa-facebook"></i>
+                    </div>
+
+
+
+                </center>
+
+            </div>
+
+
+            <div class="txt-box">
+                <h1 style="font-size: 3rem; padding-left: 150px;">About us</h1>
+                <p style="padding-top: 20px;">
+                    Everyone may want to do their job right way,everyone's version of that right thing may vary.with
+                    patient's life on the line, medical staff leaders and members must follow the same rules and
+                    guidelines to provide quality patients care and healthcare service.
+
+                    <br>
+                    <br>
+                    A standard operating system procedure stands for medicine processes that documneted to will align
+                    all the necessary processes that every staff member must follow in certain situations.Each staff
+                    consistens in the way they carry out a perticular task,reducing the risk of quality concerns.
+                </p>
+                <br>
+                <br>
+                <button onclick="myFunction()" id="btn">join Us</button>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        function myFunction() {
+            window.location.href = "/login";
+        }
+    </script>
+
+{% endblock main %}

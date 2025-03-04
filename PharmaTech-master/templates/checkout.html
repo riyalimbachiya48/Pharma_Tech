@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+{% block title %}cart{% endblock title %}
+{% block body %}{% endblock body%}
+{% block main %}
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<div class="py-3 bg-primary">
+    <div class="medicine-link">
+        <a class="text-white" href="{% url 'home' %}">Home /</a>
+        <a class="text-white" href="{% url 'checkout' %}">Checkout </a>
+        
+    </div>
+</div>
+
+<div class="medicine-container mt-3">
+
+    <form action="{% url 'placeorder' %}" method="POST">
+        {% csrf_token %}
+         <div class="row">
+            <div class="col-md-7">
+                 <div class = "card-shadow checkoutform">
+                    <div class="card-body ">
+                    <h6>Basic Details</h6>
+                    <hr>
+                 <div class="row checkoutform">
+                    <div class="col-md-6">
+                        <label>First Name</label>
+                        <input type="text" required  value="{{ request.user.first_name }}" class="form-control" name="fname" placeholder="Enter first name">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Last Name</label>
+                        <input type="text" required value="{{ request.user.last_name }}" class="form-control" name="lname" placeholder="Enter Last name">
+                    </div>
+
+                    <div class="col-md-6 mt-2">
+                        <label>Email</label>
+                        <input type="email" required value="{{ request.user.email }}" class="form-control" name="email" placeholder="Enter Email">
+                    </div>
+
+                    <div class="col-md-6 mt-2">
+                        <label>Phone</label>
+                        <input type="text"  required value="{{ userprofile.phone }}" class="form-control" name="phone" placeholder="Enter Phone">
+                    </div>
+
+                    <div class="col-md-12 mt-2">
+                        <label>Address</label>
+                        <textarea required class="form-control"  name="address" placeholder="Enter Address">{{ userprofile.address}}</textarea>
+                    </div>
+
+                    <div class="col-md-6 mt-2">
+                        <label>City</label>
+                        <input type="text"  required value="{{ userprofile.city }}" class="form-control" name="city" placeholder="Enter City">
+                        
+                    </div>
+
+                    <div class="col-md-6 mt-2">
+                        <label>State</label>
+                       <input type="text"  required value="{{ userprofile.state }}" class="form-control" name="state" placeholder="Enter State">
+                    </div>
+
+                    <div class="col-md-6 mt-2">
+                        <label>Country</label>
+                        <input type="text" required value="{{ userprofile.country }}" class="form-control" name="country" placeholder="Enter Country">
+                    </div>
+
+                    <div class="col-md-6 mt-2">
+                        <label>Pin code</label>
+                        <input type="text" required value="{{ userprofile.pincode }}" class="form-control" name="pincode" placeholder="Enter Pin Code">
+                    </div>
+                </div>
+            </div>
+            </div>
+         </div>
+        <div class="col-md-5">
+            <div class="card shadow">
+                <div class="card-body ">
+                    <h6>Order Summary</h6>
+                    <hr>
+                    {% if cartitems %}
+                        <table class="table table-stripeds table-bordered">
+                            <thead>
+                                <tr>
+                                    <th> Product </th>
+                                    <th> Qty </th>
+                                    <th> Price </th>
+                                </thead>
+
+                            </thead>
+                            <tbody>
+                                {% for item in cartitems %}
+                                    <tr>
+                                        <td>
+                                            <img src="{{ item.product.product_image.url}}" height="50px" class="me-2" width="50px">
+                                             {{item.product.name}}
+                                        </td>
+                                        <td> {{item.product_qty}} </td>
+                                        <td> {{item.product.selling_price | stringformat:'d'}} </td>
+                                 
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <h6 class="fw-bold">Grand Total
+                            <span class="float-end"> Rs {{ total_price | stringformat:'d'}} </span>
+                        </h6>
+                        <input type="hidden" value="COD" name="payment_mode">
+                        <div class="mt-3">
+                             <button type="submit" class="btn btn-success w-100"> COD | Place Order </a></button>
+                            <button type="button" class="btn btn-primary paywithRazorpay w-100 mt-2"> Pay with Razorpay </a></button>
+                            <div id="paypal-button-container" class="mt-2"></div>
+                        </div>
+                    {% else %}
+                            <h4>Your cart is empty</h4>
+                    {% endif %}
+                </div>
+        
+            </div>
+    
+        </div>
+    </div>
+</form>
+</div>
+
+{% endblock main %}
+
+{% block scripts %}
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> 
+    <script src="https://www.paypal.com/sdk/js?client-id=AREIKG498liQJwCqUkY9YdpwUK3YT6TqaSzlG_Vjv0yqgFAu1P9zG24oIyx0LOUO4H7zAsQqW7uoNuM8&currency=USD"></script>
+    <script>
+        paypal.Buttons({
+          // Order is created on the server and the order id is returned
+          createOrder() {
+            return fetch("/my-server/create-paypal-order", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              // use the "body" param to optionally pass additional order information
+              // like product skus and quantities
+              body: JSON.stringify({
+                cart: [
+                  {
+                    sku: "YOUR_PRODUCT_STOCK_KEEPING_UNIT",
+                    quantity: "YOUR_PRODUCT_QUANTITY",
+                  },
+                ],
+              }),
+            })
+            .then((response) => response.json())
+            .then((order) => order.id);
+          },
+          // Finalize the transaction on the server after payer approval
+          onApprove(data) {
+            return fetch("/my-server/capture-paypal-order", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                orderID: data.orderID
+              })
+            })
+            .then((response) => response.json())
+            .then((orderData) => {
+              // Successful capture! For dev/demo purposes:
+              console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+              const transaction = orderData.purchase_units[0].payments.captures[0];
+              alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+              // When ready to go live, remove the alert and show a success message within this page. For example:
+              // const element = document.getElementById('paypal-button-container');
+              // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+              // Or go to another URL:  window.location.href = 'thank_you.html';
+            });
+          }
+        }).render('#paypal-button-container');
+      </script>
+
+{% endblock scripts %}
